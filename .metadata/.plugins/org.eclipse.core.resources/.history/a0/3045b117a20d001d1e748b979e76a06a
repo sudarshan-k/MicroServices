@@ -1,0 +1,19 @@
+package com.currency.exchangeservice.services;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.currency.conversion.model.MoneyConvertor;
+import com.currency.conversion.repository.MoneyConvertorService;
+
+@Service
+public class MoneyExchangeService {
+
+	@Autowired
+	MoneyConvertorService moneyConvertorService;
+
+	MoneyConvertor getMoneyConversionDetailByFromAndTo(String from, String to) throws Exception {
+
+	}
+
+}

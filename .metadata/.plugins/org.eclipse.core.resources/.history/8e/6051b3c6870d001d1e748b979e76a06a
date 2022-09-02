@@ -1,0 +1,10 @@
+package com.currency.conversion.repository;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import com.currency.conversion.model.MoneyConvertor;
+
+public interface MoneyConvertorReposiotory extends JpaRepository<MoneyConvertor, Integer> {
+
+
+}

@@ -1,0 +1,44 @@
+/**
+ * 
+ */
+package com.currency.conversion.repository;
+
+import javax.sql.DataSource;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.stereotype.Repository;
+
+import com.currency.conversion.model.MoneyConvertor;
+
+@Repository
+public class MoneyConvertorDao {
+	private static Logger logger = LoggerFactory.getLogger(MoneyConvertorDao.class);
+
+	private DataSource dataSource;
+
+	@Autowired
+	JdbcTemplate jdbcTemplateObject;
+
+	public DataSource getDataSource() {
+		return dataSource;
+	}
+
+	public void setDataSource(DataSource dataSource) {
+		this.dataSource = dataSource;
+		this.jdbcTemplateObject = new JdbcTemplate(dataSource);
+	}
+
+	public MoneyConvertor getMoneyConversionDetailByFromAndTo(String from, String to) {
+
+		if (logger.isDebugEnabled()) {
+			logger.debug(MoneyConvertorDao.class + "getMoneyConversionDetailByFromAndTo");
+		}
+
+		return jdbcTemplateObject.queryForObject("Select * from  money_conversion where valueFrom=? and valueTo=?",
+				new Object[] { from, to }, (rs, rowNum) -> new MoneyConvertor(rs.getInt("id"),
+						rs.getString("valueFrom"), rs.getString("valueTo"), rs.getBigDecimal("conversion_amount")));
+	}
+
+}

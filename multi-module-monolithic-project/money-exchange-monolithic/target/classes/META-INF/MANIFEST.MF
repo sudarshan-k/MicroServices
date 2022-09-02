@@ -1,0 +1,11 @@
+Manifest-Version: 1.0
+Built-By: user
+Build-Jdk: 16.0.2
+Implementation-Title: money-exchange-monolithic
+Implementation-Version: 0.0.1-SNAPSHOT
+Implementation-Vendor-Id: com.exchange-monolithic-project
+Implementation-URL: https://projects.spring.io/spring-boot/#/spring-boot
+ -starter-parent/multi-module-monolithic-project/money-exchange-monolith
+ ic
+Created-By: Maven Integration for Eclipse
+

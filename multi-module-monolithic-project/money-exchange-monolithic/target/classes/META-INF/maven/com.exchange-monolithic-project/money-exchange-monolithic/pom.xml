@@ -1,0 +1,42 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>multi-module-monolithic-project</groupId>
+		<artifactId>multi-module-monolithic-project</artifactId>
+		<version>0.0.1-SNAPSHOT</version>
+	</parent>
+	
+	<groupId>com.exchange-monolithic-project</groupId>
+	<artifactId>money-exchange-monolithic</artifactId>
+	<name>money-exchange-monolithic</name>
+	<description>money-exchange-monolithic</description>
+
+	<packaging>jar</packaging>
+	
+	<properties>
+		<java.version>1.8</java.version>
+	</properties>
+	
+	<build>
+		<plugins>
+		<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+				<configuration>
+					<mainClass>com.currency.exchangeservice.DemoMoneyExchnageApplication</mainClass>
+					<classifier>exe</classifier>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+	
+		<dependencies>
+		<dependency>
+			<groupId>com.convertor-monolithic-project</groupId>
+			<artifactId>money-convertor-monolithic</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
+	</dependencies>
+</project>
